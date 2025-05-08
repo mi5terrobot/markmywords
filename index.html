@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notenfindung | Mathematik</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <div id="left">
+
+            <div>
+
+                <h3>Notenfindung</h3>
+    
+                <label class="lbl_punkte" for="slider">
+                    Maximale Punktzahl:
+                    <output id="maxPunkte">10</output>
+                </label>
+
+                <br>
+
+                <input type="range" id="slider" min="20" max="100" value="50" step="1" list="steplist"
+                    oninput="maxPunkte.value= slider.value" style="width: 300px;">
+                <datalist id="steplist"></datalist>
+            </div>
+
+        </div>
+
+        <div id="right">
+
+            <div>
+                <h3>Punkte - Überblick</h3>
+                <table id="noten">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Note</th>
+                            <th colspan="2">Sek 1: 50%</th>
+                            <th colspan="2">Sek 2: 40%</th>
+                        </tr>
+                        <tr>
+                            <th>1-6</th>
+                            <th>Text</th>
+                            <th>0-15</th>
+                            <th>Prozent</th>
+                            <th>ab Punkte</th>
+                            <th>Prozent</th>
+                            <th>ab Punkte</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div>
+                <h3>EWH (Sek 1: 50%)</h3>
+
+                <table id="ewh">
+                    <thead>
+                        <tr>
+                            <th>sehr gut</th>
+                            <th>gut</th>
+                            <th>befriedigend</th>
+                            <th>ausreichend</th>
+                            <th>mangelhaft</th>
+                            <th>ungenügend</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    
+    
+</body>
+
+</html>

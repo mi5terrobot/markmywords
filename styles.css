@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    background: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+
+body {
+    margin: 20px;
+}
+
+#wrapper {
+    display: inline-block;
+    border: 0px solid red;
+}
+
+#left, #right {
+    float: left;
+    border: 0px solid blue;
+    display: block;
+}
+
+h3 {
+    border: 0px solid black;
+    margin: 5px 0;
+}
+
+#left div, #right div {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 10px 10px 0;
+}
+
+.lbl_punkte {
+    font-size: x-large;
+    font-weight: 800;
+    color: #666;
+}
+
+#noten td, #noten th {
+    border: 1px solid black;
+    padding: 4px 8px;
+}
+
+#noten {
+    border-collapse: collapse;
+    font-size: small;
+}
+
+
+#noten tr:nth-child(2) th {
+    border-bottom: 2px solid black;
+}
+
+#noten th {
+    font-weight: 600;
+    padding: 4px 8px;
+    background: #efefef;
+}
+
+#noten tr:first-child th {
+    font-size: large;
+}
+
+#noten tr:nth-child(2) th:nth-child(2){
+    text-align: left;
+}
+
+#noten td:nth-child(n+3) {
+    text-align: center;
+}
+
+/* Zeilen: Defizit */
+#noten tbody tr:nth-child(n+12) td:nth-child(-n+9) {
+    background: rgba(255,0,0,0.2);
+}
+
+/* Zeile hovern */
+#noten tbody tr:hover td:nth-child(-n+9) {
+    background: #94eaff;
+}
+
+/* Tabelle: EWH */
+#ewh th, #ewh td {
+    border: 1px solid black;
+    width: 75px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+}
+#ewh {
+    border-collapse: collapse;
+    font-size: small;
+}
+#ewh th {
+    font-weight: bolder;
+}
+#ewh th:nth-child(n+5), #ewh td:nth-child(n+5) {
+    background: rgba(255,0,0,0.2);
+}
