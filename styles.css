@@ -50,8 +50,23 @@ h3 {
 }
 
 
-#noten tr:nth-child(2) th {
+#noten tr:first-child {
+    border-top: 2px solid black;
+}
+
+#noten :is(th, td):first-child {
+    border-left: 2px solid black;
+}
+
+#noten :is(thead, tbody) tr:last-child {
     border-bottom: 2px solid black;
+}
+
+#noten thead tr:first-child th,
+#noten thead tr:last-child th:is(:nth-child(3), :nth-child(5), :nth-child(7)),
+#noten tbody td:is(:nth-child(3), :nth-child(5), :nth-child(7)),
+#noten th:last-child, #noten td:last-child {
+    border-right: 2px solid black;
 }
 
 #noten th {
