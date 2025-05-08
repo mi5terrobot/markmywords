@@ -23,7 +23,7 @@ body {
 
 h3 {
     border: 0px solid black;
-    margin: 5px 0;
+    margin: 0 0 10px 0;
 }
 
 #left div, #right div {
