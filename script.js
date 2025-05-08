@@ -83,7 +83,7 @@ $(document).on("input", "#slider", function() {
 
 /* Lädt die Tabelle beim Laden des Dokuments */
 $(document).ready(function() {
-    load_Slider_Steps(10);
+    // load_Slider_Steps(10);
     var initialPoints = $("#slider").val();
     $("#maxPunkte").val(initialPoints);
     load_Tables(initialPoints);
