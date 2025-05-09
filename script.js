@@ -48,7 +48,7 @@ function load_EWH(points) {
     var n4 = (Math.ceil(2 * noten[11].Fuenfzig * points) / 2).toFixed(1);
     var n5 = (Math.ceil(2 * noten[14].Fuenfzig * points) / 2).toFixed(1);
     var data = "<tr>" +
-        "<td>" + points + "&mdash;" + n1 +  "</td>" +
+        "<td>" + points + "&mdash;" + num2ger(n1) +  "</td>" +
         "<td>" + num2ger((parseFloat(n1)-0.5).toFixed(1)) + "&mdash;" + num2ger(n2) +  "</td>" +
         "<td>" + num2ger((parseFloat(n2)-0.5).toFixed(1)) + "&mdash;" + num2ger(n3) +  "</td>" +
         "<td>" + num2ger((parseFloat(n3)-0.5).toFixed(1)) + "&mdash;" + num2ger(n4) +  "</td>" +
