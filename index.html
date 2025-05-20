@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notenfindung | Mathematik</title>
+    <title>Notenfindung | Mathematik | v12</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -12,33 +12,32 @@
 
 <body>
 
-    <div id="wrapper">
+    <div class="wrapper">
 
-        <div id="left">
+        <div class="left container">
+
+            <div>Notenfindung</div>
 
             <div>
-
-                <h3>Notenfindung</h3>
-    
                 <label class="lbl_punkte" for="slider">
                     Maximale Punktzahl:
-                    <output id="maxPunkte">10</output>
+                    <output style="color: black;" id="maxPunkte">10</output>
                 </label>
-
-                <br>
-
-                <input type="range" id="slider" min="20" max="100" value="50" step="1" list="steplist"
+                <input type="range" id="slider" min="20" max="100"
+                    value="60" step="1" list="steplist"
                     oninput="maxPunkte.value= slider.value" style="width: 300px;">
                 <!-- <datalist id="steplist"></datalist> -->
             </div>
 
         </div>
 
-        <div id="right">
+        <div class="right">
 
-            <div>
-                <h3>Punkte - Überblick</h3>
-                <table id="noten">
+            <div class="container">
+                <div>
+                    Punkte - Überblick
+                </div>
+                <table class="tbl noten">
                     <thead>
                         <tr>
                             <th colspan="3">Note</th>
@@ -59,10 +58,12 @@
                 </table>
             </div>
 
-            <div>
-                <h3>EWH (Sek 1: 50%)</h3>
-
-                <table id="ewh">
+            <div class="container">
+                <div>
+                    EWH (Sek 1: 50%)
+                    <!-- <button>Tabelle kopieren</button> -->
+                </div>
+                <table class="tbl ewh sek1">
                     <thead>
                         <tr>
                             <th>sehr gut</th>
@@ -77,10 +78,39 @@
                 </table>
             </div>
 
+            <div class="container">
+                <div>
+                    EWH (Sek 2: 40%)
+                    <!-- <button>Tabelle kopieren!</button> -->
+                </div>
+                <table class="tbl ewh sek2">
+                    <thead>
+                        <tr>
+                            <th>+</th>
+                            <th>1</th>
+                            <th>-</th>
+                            <th>+</th>
+                            <th>2</th>
+                            <th>-</th>
+                            <th>+</th>
+                            <th>3</th>
+                            <th>-</th>
+                            <th>+</th>
+                            <th>4</th>
+                            <th>-</th>
+                            <th>+</th>
+                            <th>5</th>
+                            <th>-</th>
+                            <th>6</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
         </div>
 
     </div>
-
     
     
 </body>

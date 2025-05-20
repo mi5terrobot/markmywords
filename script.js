@@ -19,7 +19,7 @@ const noten = [
 
 /* Lade Noten Tabelle */
 function load_Tables(points) {
-    $("#noten tbody tr").remove(); // Clear existing rows
+    $(".noten tbody tr").remove(); // Clear existing rows
     points = parseFloat(points); // Ensure points is a number
     for(let i=0; i<noten.length; i++) {
         var min_50 = (Math.ceil(2 * noten[i].Fuenfzig * points)/2).toFixed(1);
@@ -34,13 +34,13 @@ function load_Tables(points) {
             "<td>" + (noten[i].Vierzig * 100).toFixed(0) + " %</td>" +
             "<td>" + min_40 + "</td>" +
             "</tr>";
-        $("#noten tbody").append(data);
+        $(".noten tbody").append(data);
     }
 }
 
 /* Lade EWH Tabelle */
-function load_EWH(points) {
-    $("#ewh tbody tr").remove(); // Clear existing rows
+function load_EWH_50(points) {
+    $("table.sek1 tbody tr").remove(); // Clear existing rows
     points = parseFloat(points); // Ensure points is a number
     var n1 = (Math.ceil(2 * noten[2].Fuenfzig * points) / 2).toFixed(1);
     var n2 = (Math.ceil(2 * noten[5].Fuenfzig * points) / 2).toFixed(1);
@@ -55,7 +55,22 @@ function load_EWH(points) {
         "<td>" + num2ger((parseFloat(n4)-0.5).toFixed(1)) + "&mdash;" + num2ger(n5) +  "</td>" +
         "<td>" + num2ger((parseFloat(n5)-0.5).toFixed(1)) + "&mdash;" + 0 +  "</td>" +
         "</tr>";
-    $("#ewh tbody").append(data);
+    $("table.sek1 tbody").append(data);
+}
+
+function load_EWH_40(points) {    
+    var data_percent = "<tr>";
+    var data_points = "<tr>";
+    for(let i=0; i<noten.length; i++) {
+        data_percent += "<th>" + noten[i].Punkte + "</th>";
+        data_points += "<td>" + (Math.ceil(noten[i].Vierzig * points)).toFixed(0) + "</td>";
+    }
+    data_percent += "</tr>";
+    data_points += "</tr>";
+    $("table.ewh.sek2 thead tr:eq(1)").remove(); // Remove existing 2nd row if present
+    $("table.ewh.sek2 tbody tr").remove(); // Clear existing rows
+    $("table.ewh.sek2 thead tr:first").after(data_percent);
+    $("table.ewh.sek2 tbody").append(data_points);
 }
 
 /* Komma statt Punkt */
@@ -73,12 +88,52 @@ function load_Slider_Steps(step) {
     $("datalist").append(data);
 }
 
+/* copy button */
+function copy_Button_Table_EWH_S2() {
+    $("#copySek2Table").on("click", function () {
+        const table = document.querySelector("table.tbl.ewh.sek2");
+
+        if (!table) {
+            alert("Tabelle nicht gefunden.");
+            return;
+        }
+
+        const tempDiv = document.createElement("div");
+        tempDiv.style.position = "fixed";
+        tempDiv.style.left = "-9999px";
+        tempDiv.appendChild(table.cloneNode(true));
+        document.body.appendChild(tempDiv);
+
+        const range = document.createRange();
+        range.selectNodeContents(tempDiv);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        try {
+            document.execCommand("copy");
+
+            // ChatGPT-style feedback
+            const $btn = $("#copySek2Table");
+            $btn.addClass("copied");
+            setTimeout(() => $btn.removeClass("copied"), 1500);
+
+        } catch (err) {
+            alert("Fehler beim Kopieren.");
+        }
+
+        selection.removeAllRanges();
+        document.body.removeChild(tempDiv);
+    });
+}
+
 /* Ändere wenn Slider bewegt wird */
 $(document).on("input", "#slider", function() {
     var initialPoints = $(this).val();
     // $("#maxPunkte").val(initialPoints);
     load_Tables(initialPoints);
-    load_EWH(initialPoints);
+    load_EWH_50(initialPoints);
+    load_EWH_40(initialPoints);
 });
 
 /* Lädt die Tabelle beim Laden des Dokuments */
@@ -87,5 +142,7 @@ $(document).ready(function() {
     var initialPoints = $("#slider").val();
     $("#maxPunkte").val(initialPoints);
     load_Tables(initialPoints);
-    load_EWH(initialPoints);
+    load_EWH_50(initialPoints);
+    load_EWH_40(initialPoints);
+    copy_Button_Table_EWH_S2();
 });
