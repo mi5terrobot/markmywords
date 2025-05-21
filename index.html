@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -16,7 +17,7 @@
 
         <div class="left container">
 
-            <div>Notenfindung</div>
+            <div class="title">Notenfindung</div>
 
             <div>
                 <label class="lbl_punkte" for="slider">
@@ -34,7 +35,7 @@
         <div class="right">
 
             <div class="container">
-                <div>
+                <div class="title">
                     Punkte - Überblick
                 </div>
                 <div class="tbl">
@@ -61,14 +62,18 @@
             </div>
 
             <div class="container">
-                <div>
-                    EWH (Sek 1: 50%)
-                    <!-- <button>Tabelle kopieren</button> -->
+                <div class="title">
+                    <div>Erwartungshorizont | <span>Sek 1</span> | 50%</div>
+                    <button class="btn-copy-table" onclick="tabelleKopieren_sek1()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor" stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-copy"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg>
+                        Tabelle kopieren
+                    </button>
                 </div>
                 <div class="tbl">
-                    <table class="ewh sek1">
+                    <table id="tbl-ewh-sek1" class="ewh sek1">
                         <thead>
                             <tr>
+                                <th>Note</th>
                                 <th>sehr gut</th>
                                 <th>gut</th>
                                 <th>befriedigend</th>
@@ -83,14 +88,18 @@
             </div>
 
             <div class="container">
-                <div>
-                    EWH (Sek 2: 40%)
-                    <!-- <button>Tabelle kopieren!</button> -->
+                <div class="title">
+                    <div>Erwartungshorizont | <span>Sek 2</span> | 40%</div>
+                    <button class="btn-copy-table" onclick="tabelleKopieren_sek2()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"  fill="none"  stroke="currentColor" stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-copy"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" /><path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" /></svg>
+                        Tabelle kopieren
+                    </button>
                 </div>
                 <div class="tbl">
-                    <table class="ewh sek2">
+                    <table id="tbl-ewh-sek2" class="ewh sek2">
                         <thead>
                             <tr>
+                                <th>Note</th>
                                 <th>+</th>
                                 <th>1</th>
                                 <th>-</th>

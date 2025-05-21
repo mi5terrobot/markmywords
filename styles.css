@@ -2,7 +2,10 @@
 
 :root {
     /* background colors */
-    --container-background: rgba(0, 0, 0, 0.08);
+    --container-background: #f0f0f0;
+    --btn-hover: #efefef;
+    --tbl-thead-1: rgba(250, 200, 50, 0.5);
+    --tbl-thead-2: rgba(250, 200, 50, 0.2);
     --noten-defizit: rgba(255, 0, 0, 0.08);
     --noten-hover: rgba(0, 150, 255, 0.08);
     /* border types */
@@ -21,19 +24,16 @@ body {
 }
 
 .wrapper {
-    border: 0px solid green;
     display: inline-block;
 }
 
 .left {
-    border: 0px solid red;
     border-radius: 16px;
     float: left;
     margin-right: 20px;
 }
 .left div:nth-child(2) {
     margin: 10px;
-    border: 0px solid blue;
     color: gray;
 }
 .lbl_punkte {
@@ -58,26 +58,64 @@ body {
 .container {
     border: var(--container-border);
     display: block;
-    border-radius: 16px;
+    border-radius: 12px;
 }
-.container > div:first-of-type {
+.container .title {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
     background: var(--container-background);
-    padding: 10px 15px;
+    padding: 0 15px;
     font-weight: 500;
     font-size: medium;
 }
-.container > div button {
+.container .title .btn-copy-table {
+    display: flex;
+    align-items: center;
+    height: 30px;
     float: right;
+    /* border: var(--container-border); */
+    border: none;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    background: inherit;
+}
+.container .title .btn-copy-table svg {
+    background: inherit;
+    width: 20px;
+    height: 20px;
+    padding: 0 5px 0 1px;
+}
+.container .title .btn-copy-table:hover {
+    background: #ddd;
+}
+.container .title div, .container .title div span {
+    font: inherit;
+    background: inherit;
+}
+.container .title div span {
+    font-weight: 300;
 }
 .tbl {
     margin: 15px;
     border: var(--tbl-border); /* outer border color */
 }
-/* tbl noten thead backgrounds */
-.tbl .noten th {
-    background: var(--container-background);
+/* tbl thead backgrounds */
+.tbl thead tr:nth-child(1) th {
+    background: var(--tbl-thead-1);
+}
+.tbl thead tr:nth-child(2) th {
+    background: var(--tbl-thead-2);
+}
+/* tbl noten thead font size */
+.tbl .noten thead tr:first-child th {
+    font-size: medium;
+    text-transform: uppercase;
 }
 /* tbl noten border inner groups */
 .tbl .noten thead tr:first-child th:not(:last-child),
@@ -89,14 +127,17 @@ body {
     border-bottom: var(--tbl-inner-group);
 }
 /* tbl ewh border inner groups */
-.tbl .ewh.sek2 :is(th, td):nth-child(3n+3) {
+.tbl .ewh.sek1 :is(th, td):first-child {
+    border-right: var(--tbl-inner-group);
+}
+.tbl .ewh.sek2 :is(th, td):nth-child(3n+1) {
     border-right: var(--tbl-inner-group);
 }
 .tbl .ewh.sek2 thead tr:last-child th {
     border-bottom: var(--tbl-inner-group);
 }
 .tbl :is(.noten, .ewh) {
-    width: 480px;
+    width: 520px;
     border-collapse: collapse;
 }
 .tbl :is(.noten, .ewh) :is(th, td) {
@@ -104,8 +145,8 @@ body {
     padding: 2px 5px;
     text-align: center;
 }
-.tbl .ewh {
-    table-layout: fixed;
+.tbl .ewh :is(th, td):first-child {
+    text-align: left;
 }
 
 /* tbl defizite rot färben */

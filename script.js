@@ -47,7 +47,7 @@ function load_EWH_50(points) {
     var n3 = (Math.ceil(2 * noten[8].Fuenfzig * points) / 2).toFixed(1);
     var n4 = (Math.ceil(2 * noten[11].Fuenfzig * points) / 2).toFixed(1);
     var n5 = (Math.ceil(2 * noten[14].Fuenfzig * points) / 2).toFixed(1);
-    var data = "<tr>" +
+    var data = "<tr><th>Punkte</th>" +
         "<td>" + points + "&mdash;" + num2ger(n1) +  "</td>" +
         "<td>" + num2ger((parseFloat(n1)-0.5).toFixed(1)) + "&mdash;" + num2ger(n2) +  "</td>" +
         "<td>" + num2ger((parseFloat(n2)-0.5).toFixed(1)) + "&mdash;" + num2ger(n3) +  "</td>" +
@@ -59,17 +59,17 @@ function load_EWH_50(points) {
 }
 
 function load_EWH_40(points) {    
-    var data_percent = "<tr>";
-    var data_points = "<tr>";
+    var data_notenpunkte = "<tr><th>Notenpunkte</th>";
+    var data_points = "<tr><th>ab Punkte</th>";
     for(let i=0; i<noten.length; i++) {
-        data_percent += "<th>" + noten[i].Punkte + "</th>";
+        data_notenpunkte += "<th>" + noten[i].Punkte + "</th>";
         data_points += "<td>" + (Math.ceil(noten[i].Vierzig * points)).toFixed(0) + "</td>";
     }
-    data_percent += "</tr>";
+    data_notenpunkte += "</tr>";
     data_points += "</tr>";
     $("table.ewh.sek2 thead tr:eq(1)").remove(); // Remove existing 2nd row if present
     $("table.ewh.sek2 tbody tr").remove(); // Clear existing rows
-    $("table.ewh.sek2 thead tr:first").after(data_percent);
+    $("table.ewh.sek2 thead tr:first").after(data_notenpunkte);
     $("table.ewh.sek2 tbody").append(data_points);
 }
 
@@ -125,6 +125,53 @@ function copy_Button_Table_EWH_S2() {
         selection.removeAllRanges();
         document.body.removeChild(tempDiv);
     });
+}
+
+/* button kopieren */
+
+
+/* tabelle kopieren */
+function tabelleKopieren_sek1() {
+    const tabelle = document.getElementById("tbl-ewh-sek1");
+    const bereich = document.createRange();
+    bereich.selectNode(tabelle);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(bereich);
+
+    try {
+    const erfolgreich = document.execCommand("copy");
+    if (erfolgreich) {
+        alert("Tabelle wurde in die Zwischenablage kopiert. Du kannst sie jetzt z. B. in Word einfügen.");
+    } else {
+        alert("Kopieren fehlgeschlagen. Bitte versuche es manuell mit Strg+C.");
+    }
+    } catch (err) {
+    alert("Kopieren nicht möglich. Bitte versuche es manuell mit Strg+C.");
+    }
+
+    selection.removeAllRanges();
+}
+function tabelleKopieren_sek2() {
+    const tabelle = document.getElementById("tbl-ewh-sek2");
+    const bereich = document.createRange();
+    bereich.selectNode(tabelle);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(bereich);
+
+    try {
+    const erfolgreich = document.execCommand("copy");
+    if (erfolgreich) {
+        alert("Tabelle wurde in die Zwischenablage kopiert. Du kannst sie jetzt z. B. in Word einfügen.");
+    } else {
+        alert("Kopieren fehlgeschlagen. Bitte versuche es manuell mit Strg+C.");
+    }
+    } catch (err) {
+    alert("Kopieren nicht möglich. Bitte versuche es manuell mit Strg+C.");
+    }
+
+    selection.removeAllRanges();
 }
 
 /* Ändere wenn Slider bewegt wird */
