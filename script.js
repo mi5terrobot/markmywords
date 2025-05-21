@@ -11,8 +11,8 @@ const noten = [
     {Wert: "4+", Punkte: 6, Text: "ausreichend (+)" , Vierzig: 0.5, Fuenfzig: 0.583},
     {Wert: "4", Punkte: 5, Text: "ausreichend" , Vierzig: 0.45, Fuenfzig: 0.542},
     {Wert: "4-", Punkte: 4, Text: "ausreichend (-)" , Vierzig: 0.4, Fuenfzig: 0.5},
-    {Wert: "5+", Punkte: 3, Text: "mangelhaft (+)" , Vierzig: 0.333, Fuenfzig: 0.417},
-    {Wert: "5", Punkte: 2, Text: "mangelhaft" , Vierzig: 0.267, Fuenfzig: 0.333},
+    {Wert: "5+", Punkte: 3, Text: "mangelhaft (+)" , Vierzig: 0.33, Fuenfzig: 0.417},
+    {Wert: "5", Punkte: 2, Text: "mangelhaft" , Vierzig: 0.27, Fuenfzig: 0.333},
     {Wert: "5-", Punkte: 1, Text: "mangelhaft (-)" , Vierzig: 0.2, Fuenfzig: 0.25},
     {Wert: "6", Punkte: 0, Text: "ungenügend", Vierzig: 0, Fuenfzig: 0}
 ];
