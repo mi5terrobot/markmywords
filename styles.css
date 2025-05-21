@@ -87,8 +87,8 @@ body {
 }
 .container .title .btn-copy-table svg {
     background: inherit;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     padding: 0 5px 0 1px;
 }
 .container .title .btn-copy-table:hover {
