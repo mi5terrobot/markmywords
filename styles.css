@@ -154,7 +154,7 @@ body {
 /* tbl defizite rot färben */
 .tbl .noten tbody tr:nth-child(n+12) td,
 .tbl .ewh.sek1 tbody td:nth-child(n+5),
-.tbl .ewh.sek2 tbody td:nth-child(n+12) {
+.tbl .ewh.sek2 tbody td:nth-child(n+13) {
     background: var(--noten-defizit);
 }
 
