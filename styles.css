@@ -18,6 +18,7 @@
     background: #fff;
     font-family: "Roboto", sans-serif;
     font-size: 12px;
+    font-weight: normal;
 }
 body {
     margin: 20px;
@@ -68,8 +69,12 @@ body {
     border-top-right-radius: inherit;
     background: var(--container-background);
     padding: 0 15px;
-    font-weight: 500;
-    font-size: medium;
+    font-size: medium;    
+}
+.container .title > div span {
+    font-size: inherit;
+    background: inherit;
+    font-weight: 300 !important;
 }
 .container .title .btn-copy-table {
     display: flex;
@@ -97,9 +102,6 @@ body {
 .container .title div, .container .title div span {
     font: inherit;
     background: inherit;
-}
-.container .title div span {
-    font-weight: 300;
 }
 .tbl {
     margin: 15px;
