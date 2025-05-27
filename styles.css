@@ -24,6 +24,17 @@ body {
     margin: 20px;
 }
 
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+
 .wrapper {
     display: inline-block;
 }
@@ -33,10 +44,23 @@ body {
     float: left;
     margin: 0 20px 20px 0;
 }
-.left div:nth-child(2) {
+.left > div {
+    width: 324px;
+    margin-bottom: 20px;
+}
+.left > div > div:nth-child(2) {
     margin: 10px;
     color: gray;
 }
+.left .title span {
+    font-size: inherit;
+    background: inherit;
+    font-weight: 300 !important;
+}
+.left .info {
+    font-size: medium;
+}
+
 .lbl_punkte {
     margin-bottom: 10px;
     display: block;

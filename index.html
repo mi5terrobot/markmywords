@@ -14,19 +14,26 @@
 
     <div class="wrapper">
 
-        <div class="left container">
+        <div class="left">
 
-            <div class="title">Notenfindung</div>
-
-            <div>
-                <label class="lbl_punkte" for="slider">
-                    Maximale Punktzahl:
-                    <output style="color: black;" id="maxPunkte">10</output>
-                </label>
-                <input type="range" id="slider" min="20" max="100"
-                    value="60" step="1" list="steplist"
-                    oninput="maxPunkte.value= slider.value" style="width: 300px;">
-                <!-- <datalist id="steplist"></datalist> -->
+            <div class="container">
+                <div class="title"><span>Fachschaft </span>Mathematik</div>
+                <div class="info">
+                    Leistungskonzept: <a href="https://www.kreuzgasse.de/pdf/lehrplan/Mathematik%20Leistungskonzept.pdf" target="_blank">[PDF]</a>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="title">Notenfindung</div>
+                <div>
+                    <label class="lbl_punkte" for="slider">
+                        Maximale Punktzahl:
+                        <output style="color: black;" id="maxPunkte">10</output>
+                    </label>
+                    <input type="range" id="slider" min="20" max="100"
+                        value="60" step="1" list="steplist"
+                        oninput="maxPunkte.value= slider.value" style="width: 300px;">
+                </div>
             </div>
 
         </div>
