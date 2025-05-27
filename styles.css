@@ -16,6 +16,7 @@
     --tbl-inner-group: 1px solid black;
     --tbl-inner-border: 1px solid rgba(0, 0, 0, 0.2);
     --container-border: 1px solid rgba(0, 0, 0, 0.3);
+    --container-logo-border: 1px solid rgb(255, 200, 200);
 }
 * {
     background: #fff;
@@ -25,6 +26,10 @@
 }
 body {
     margin: 20px;
+}
+img {
+    width: 100%;
+    height: auto;
 }
 
 a {
@@ -64,17 +69,27 @@ a:hover {
 .left .info {
     font-size: medium;
 }
+.left .container .logo {
+    width: 150px;
+    margin: 30px auto;
+}
+.left > .container:first-of-type {
+    border: var(--container-logo-border);
+}
 
 .lbl_punkte {
-    margin-bottom: 10px;
-    display: block;
-    font-size: x-large;
-    font-weight: 300;
+    height: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: medium;
+    font-weight: 500;
 }
 .lbl_punkte output {
     font-size: x-large;
     font-weight: 700;
-    color: black
+    color: black;
+    height: 35px;
 }
 
 .right {
@@ -88,6 +103,10 @@ a:hover {
     border: var(--container-border);
     display: block;
     border-radius: 12px;
+}
+.right .container:first-of-type,
+.right .container:first-of-type * {
+    background: #fce398;
 }
 .container .title {
     position: relative;
@@ -131,8 +150,10 @@ a:hover {
     font: inherit;
     background: inherit;
 }
-.tbl {
+.container .content {
     margin: 15px;
+}
+.tbl {
     border: var(--tbl-border); /* outer border color */
 }
 /* tbl thead backgrounds */

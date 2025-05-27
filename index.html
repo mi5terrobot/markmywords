@@ -17,13 +17,19 @@
         <div class="left">
 
             <div class="container">
+                <div class="logo">
+                    <img src="img/kreuzgasse-logo.png" alt="">
+                </div>
+            </div>
+
+            <div class="container">
                 <div class="title"><span>Fachschaft </span>Mathematik</div>
                 <div class="info">
                     Leistungskonzept: <a href="https://www.kreuzgasse.de/pdf/lehrplan/Mathematik%20Leistungskonzept.pdf" target="_blank">[PDF]</a>
                 </div>
             </div>
             
-            <div class="container">
+            <!-- <div class="container">
                 <div class="title">Notenfindung</div>
                 <div>
                     <label class="lbl_punkte" for="slider">
@@ -34,17 +40,29 @@
                         value="60" step="1" list="steplist"
                         oninput="maxPunkte.value= slider.value" style="width: 300px;">
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
         <div class="right">
 
             <div class="container">
-                <div class="title">
-                    Noten - Punkte - Überblick
+                <div class="content">
+                    <label class="lbl_punkte" for="slider">
+                        Maximale Punktzahl:
+                        <input type="range" id="slider" min="20" max="100"
+                        value="60" step="1" list="steplist"
+                        oninput="maxPunkte.value= slider.value" style="width: 300px;">
+                        <output style="color: black;" id="maxPunkte">10</output>
+                    </label>
                 </div>
-                <div class="tbl">
+            </div>
+
+            <div class="container">
+                <div class="title">
+                    <div><span>Überblick | </span>Noten & Punkte</div>
+                </div>
+                <div class="content tbl">
                     <table class="noten">
                         <thead>
                             <tr>
@@ -75,7 +93,7 @@
                         Tabelle kopieren
                     </button>
                 </div>
-                <div class="tbl">
+                <div class="content tbl">
                     <table id="tbl-ewh-sek1" class="ewh sek1">
                         <thead>
                             <tr>
@@ -101,7 +119,7 @@
                         Tabelle kopieren
                     </button>
                 </div>
-                <div class="tbl">
+                <div class="content tbl">
                     <table id="tbl-ewh-sek2" class="ewh sek2">
                         <thead>
                             <tr>
