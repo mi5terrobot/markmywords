@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
+    /* font colors */
+    --hyperlink-text: #323e54;
+    --hyperlink-hover: rgb(215, 172, 42);
     /* background colors */
     --container-background: #f0f0f0;
     --btn-hover: #efefef;
@@ -25,13 +28,14 @@ body {
 }
 
 a {
-    color: blue;
+    color: var(--hyperlink-text);
     text-decoration: none;
+    font-size: 16px;
 }
 
 a:hover {
-    color: darkblue;
-    text-decoration: underline;
+    color: var(--hyperlink-hover);
+    text-decoration: none;
 }
 
 
