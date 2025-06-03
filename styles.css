@@ -211,3 +211,7 @@ a:hover {
 .tbl .noten tbody tr:hover td {
     background: var(--noten-hover);
 }
+
+.container:hover {
+    border: 1px solid black;
+}
