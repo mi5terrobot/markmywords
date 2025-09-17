@@ -54,7 +54,7 @@ a:hover {
     margin: 0 20px 20px 0;
 }
 .left > div {
-    width: 324px;
+    width: 270px;
     margin-bottom: 20px;
 }
 .left > div > div:nth-child(2) {
@@ -71,7 +71,7 @@ a:hover {
 }
 .left .container .logo {
     width: 150px;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 .left > .container:first-of-type {
     border: var(--container-logo-border);
