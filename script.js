@@ -39,7 +39,7 @@ function load_Tables(points) {
 }
 
 /* Lade EWH Tabelle */
-function load_EWH_50(points) {
+function load_EWH_sek1(points) {
     $("table.sek1 tbody tr").remove(); // Clear existing rows
     points = parseFloat(points); // Ensure points is a number
     var n1 = (Math.ceil(2 * noten[2].Fuenfzig * points) / 2).toFixed(1);
@@ -58,7 +58,26 @@ function load_EWH_50(points) {
     $("table.sek1 tbody").append(data);
 }
 
-function load_EWH_40(points) {    
+function load_EWH_sek2_ef(points) {
+    $("table.ewh.sek2.ef tbody tr").remove(); // Clear existing rows
+    points = parseFloat(points); // Ensure points is a number
+    var n1 = (Math.ceil(noten[2].Vierzig * points)).toFixed(0);
+    var n2 = (Math.ceil(noten[5].Vierzig * points)).toFixed(0);
+    var n3 = (Math.ceil(noten[8].Vierzig * points)).toFixed(0);
+    var n4 = (Math.ceil(noten[11].Vierzig * points)).toFixed(0);
+    var n5 = (Math.ceil(noten[14].Vierzig * points)).toFixed(0);
+    var data = "<tr><th>Punkte</th>" +
+        "<td>" + points + "&mdash;" + num2ger(n1) +  "</td>" +
+        "<td>" + num2ger((parseFloat(n1)-1).toFixed(0)) + "&mdash;" + num2ger(n2) +  "</td>" +
+        "<td>" + num2ger((parseFloat(n2)-1).toFixed(0)) + "&mdash;" + num2ger(n3) +  "</td>" +
+        "<td>" + num2ger((parseFloat(n3)-1).toFixed(0)) + "&mdash;" + num2ger(n4) +  "</td>" +
+        "<td>" + num2ger((parseFloat(n4)-1).toFixed(0)) + "&mdash;" + num2ger(n5) +  "</td>" +
+        "<td>" + num2ger((parseFloat(n5)-1).toFixed(0)) + "&mdash;" + 0 +  "</td>" +
+        "</tr>";
+    $("table.ewh.sek2.ef tbody").append(data);
+}
+
+function load_EWH_sek2_q(points) {
     var data_notenpunkte = "<tr><th>Notenpunkte</th>";
     var data_points = "<tr><th>ab Punkte</th>";
     for(let i=0; i<noten.length; i++) {
@@ -67,10 +86,10 @@ function load_EWH_40(points) {
     }
     data_notenpunkte += "</tr>";
     data_points += "</tr>";
-    $("table.ewh.sek2 thead tr:eq(1)").remove(); // Remove existing 2nd row if present
-    $("table.ewh.sek2 tbody tr").remove(); // Clear existing rows
-    $("table.ewh.sek2 thead tr:first").after(data_notenpunkte);
-    $("table.ewh.sek2 tbody").append(data_points);
+    $("table.ewh.sek2.q thead tr:eq(1)").remove(); // Remove existing 2nd row if present
+    $("table.ewh.sek2.q tbody tr").remove(); // Clear existing rows
+    $("table.ewh.sek2.q thead tr:first").after(data_notenpunkte);
+    $("table.ewh.sek2.q tbody").append(data_points);
 }
 
 /* Komma statt Punkt */
@@ -152,8 +171,29 @@ function tabelleKopieren_sek1() {
 
     selection.removeAllRanges();
 }
-function tabelleKopieren_sek2() {
-    const tabelle = document.getElementById("tbl-ewh-sek2");
+function tabelleKopieren_sek2_ef() {
+    const tabelle = document.getElementById("tbl-ewh-sek2-ef");
+    const bereich = document.createRange();
+    bereich.selectNode(tabelle);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(bereich);
+
+    try {
+    const erfolgreich = document.execCommand("copy");
+    if (erfolgreich) {
+        alert("Tabelle wurde in die Zwischenablage kopiert. Du kannst sie jetzt z. B. in Word einfügen.");
+    } else {
+        alert("Kopieren fehlgeschlagen. Bitte versuche es manuell mit Strg+C.");
+    }
+    } catch (err) {
+    alert("Kopieren nicht möglich. Bitte versuche es manuell mit Strg+C.");
+    }
+
+    selection.removeAllRanges();
+}
+function tabelleKopieren_sek2_q() {
+    const tabelle = document.getElementById("tbl-ewh-sek2-q");
     const bereich = document.createRange();
     bereich.selectNode(tabelle);
     const selection = window.getSelection();
@@ -179,8 +219,9 @@ $(document).on("input", "#slider", function() {
     var initialPoints = $(this).val();
     // $("#maxPunkte").val(initialPoints);
     load_Tables(initialPoints);
-    load_EWH_50(initialPoints);
-    load_EWH_40(initialPoints);
+    load_EWH_sek1(initialPoints);
+    load_EWH_sek2_ef(initialPoints);
+    load_EWH_sek2_q(initialPoints);
 });
 
 /* Lädt die Tabelle beim Laden des Dokuments */
@@ -189,7 +230,8 @@ $(document).ready(function() {
     var initialPoints = $("#slider").val();
     $("#maxPunkte").val(initialPoints);
     load_Tables(initialPoints);
-    load_EWH_50(initialPoints);
-    load_EWH_40(initialPoints);
-    copy_Button_Table_EWH_S2();
+    load_EWH_sek1(initialPoints);
+    load_EWH_sek2_ef(initialPoints);
+    load_EWH_sek2_q(initialPoints);
+    // copy_Button_Table_EWH_S2();
 });
