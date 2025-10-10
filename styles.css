@@ -76,6 +76,13 @@ a:hover {
 .left > .container:first-of-type {
     border: var(--container-logo-border);
 }
+.kreuzgasse:hover,
+.kreuzgasse:hover * {
+    background-color: rgb(255, 245, 245);
+}
+.kreuzgasse:hover {
+    border: 1px solid red !important;
+}
 
 .lbl_punkte {
     height: 20px;
